@@ -140,13 +140,14 @@ var file_service_proto_rawDesc = []byte{
 	0x0c, 0x0a, 0x01, 0x62, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x01, 0x62, 0x22, 0x22, 0x0a,
 	0x08, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x73,
 	0x75, 0x6c, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c,
-	0x74, 0x32, 0x61, 0x0a, 0x0a, 0x41, 0x64, 0x64, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12,
-	0x26, 0x0a, 0x03, 0x41, 0x64, 0x64, 0x12, 0x0e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0f, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2b, 0x0a, 0x08, 0x4d, 0x75, 0x6c, 0x74, 0x69,
-	0x70, 0x6c, 0x79, 0x12, 0x0e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x0f, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x74, 0x32, 0x68, 0x0a, 0x11, 0x41, 0x72, 0x69, 0x74, 0x68, 0x6d, 0x65, 0x74, 0x69, 0x63, 0x53,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x26, 0x0a, 0x03, 0x41, 0x64, 0x64, 0x12, 0x0e, 0x2e,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0f, 0x2e,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2b,
+	0x0a, 0x08, 0x4d, 0x75, 0x6c, 0x74, 0x69, 0x70, 0x6c, 0x79, 0x12, 0x0e, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0f, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -167,10 +168,10 @@ var file_service_proto_goTypes = []interface{}{
 	(*Response)(nil), // 1: proto.Response
 }
 var file_service_proto_depIdxs = []int32{
-	0, // 0: proto.AddService.Add:input_type -> proto.Request
-	0, // 1: proto.AddService.Multiply:input_type -> proto.Request
-	1, // 2: proto.AddService.Add:output_type -> proto.Response
-	1, // 3: proto.AddService.Multiply:output_type -> proto.Response
+	0, // 0: proto.ArithmeticService.Add:input_type -> proto.Request
+	0, // 1: proto.ArithmeticService.Multiply:input_type -> proto.Request
+	1, // 2: proto.ArithmeticService.Add:output_type -> proto.Response
+	1, // 3: proto.ArithmeticService.Multiply:output_type -> proto.Response
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -237,108 +238,108 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// AddServiceClient is the client API for AddService service.
+// ArithmeticServiceClient is the client API for ArithmeticService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type AddServiceClient interface {
+type ArithmeticServiceClient interface {
 	Add(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error)
 	Multiply(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error)
 }
 
-type addServiceClient struct {
+type arithmeticServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAddServiceClient(cc grpc.ClientConnInterface) AddServiceClient {
-	return &addServiceClient{cc}
+func NewArithmeticServiceClient(cc grpc.ClientConnInterface) ArithmeticServiceClient {
+	return &arithmeticServiceClient{cc}
 }
 
-func (c *addServiceClient) Add(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error) {
+func (c *arithmeticServiceClient) Add(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error) {
 	out := new(Response)
-	err := c.cc.Invoke(ctx, "/proto.AddService/Add", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.ArithmeticService/Add", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *addServiceClient) Multiply(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error) {
+func (c *arithmeticServiceClient) Multiply(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error) {
 	out := new(Response)
-	err := c.cc.Invoke(ctx, "/proto.AddService/Multiply", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.ArithmeticService/Multiply", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AddServiceServer is the server API for AddService service.
-type AddServiceServer interface {
+// ArithmeticServiceServer is the server API for ArithmeticService service.
+type ArithmeticServiceServer interface {
 	Add(context.Context, *Request) (*Response, error)
 	Multiply(context.Context, *Request) (*Response, error)
 }
 
-// UnimplementedAddServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedAddServiceServer struct {
+// UnimplementedArithmeticServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedArithmeticServiceServer struct {
 }
 
-func (*UnimplementedAddServiceServer) Add(context.Context, *Request) (*Response, error) {
+func (*UnimplementedArithmeticServiceServer) Add(context.Context, *Request) (*Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
 }
-func (*UnimplementedAddServiceServer) Multiply(context.Context, *Request) (*Response, error) {
+func (*UnimplementedArithmeticServiceServer) Multiply(context.Context, *Request) (*Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Multiply not implemented")
 }
 
-func RegisterAddServiceServer(s *grpc.Server, srv AddServiceServer) {
-	s.RegisterService(&_AddService_serviceDesc, srv)
+func RegisterArithmeticServiceServer(s *grpc.Server, srv ArithmeticServiceServer) {
+	s.RegisterService(&_ArithmeticService_serviceDesc, srv)
 }
 
-func _AddService_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ArithmeticService_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AddServiceServer).Add(ctx, in)
+		return srv.(ArithmeticServiceServer).Add(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.AddService/Add",
+		FullMethod: "/proto.ArithmeticService/Add",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddServiceServer).Add(ctx, req.(*Request))
+		return srv.(ArithmeticServiceServer).Add(ctx, req.(*Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AddService_Multiply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ArithmeticService_Multiply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AddServiceServer).Multiply(ctx, in)
+		return srv.(ArithmeticServiceServer).Multiply(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.AddService/Multiply",
+		FullMethod: "/proto.ArithmeticService/Multiply",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddServiceServer).Multiply(ctx, req.(*Request))
+		return srv.(ArithmeticServiceServer).Multiply(ctx, req.(*Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _AddService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "proto.AddService",
-	HandlerType: (*AddServiceServer)(nil),
+var _ArithmeticService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "proto.ArithmeticService",
+	HandlerType: (*ArithmeticServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Add",
-			Handler:    _AddService_Add_Handler,
+			Handler:    _ArithmeticService_Add_Handler,
 		},
 		{
 			MethodName: "Multiply",
-			Handler:    _AddService_Multiply_Handler,
+			Handler:    _ArithmeticService_Multiply_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

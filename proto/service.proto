@@ -11,7 +11,7 @@ message Response {
     int64 result = 1;
 }
 
-service AddService {
+service ArithmeticService {
     rpc Add (Request) returns (Response);
     rpc Multiply (Request) returns (Response);
 }
