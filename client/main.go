@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/adrianwg23/grpc-example/proto"
-	"google.golang.org/grpc"
 	"github.com/gin-gonic/gin"
+	"google.golang.org/grpc"
 	"log"
 	"net/http"
 	"strconv"
