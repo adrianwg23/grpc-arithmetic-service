@@ -16,3 +16,4 @@
 .idea/
 go.mod
 go.sum
+bin/
