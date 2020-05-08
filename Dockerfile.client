@@ -1,0 +1,15 @@
+FROM golang:1.14-alpine
+
+WORKDIR /opt/github.com/adrianwg23/grpc-example/client
+
+COPY go.mod ../
+COPY go.sum ../
+RUN go mod download
+
+COPY client .
+COPY proto ../proto
+
+RUN go build
+
+EXPOSE 8080
+CMD ["./client"]

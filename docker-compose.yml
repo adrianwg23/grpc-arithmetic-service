@@ -1,0 +1,18 @@
+version: "3"
+services:
+  grpc-server:
+    image: grpc-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "4040:4040"
+    container_name: grpc-server
+  grpc-client:
+    image: grpc-client:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    ports:
+      - "8080:8080"
+    container_name: grpc-client
