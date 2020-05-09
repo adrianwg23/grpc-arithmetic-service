@@ -2,6 +2,8 @@ FROM golang:1.14-alpine
 
 WORKDIR /opt/github.com/adrianwg23/grpc-example/client
 
+RUN apk --no-cache add curl
+
 COPY go.mod ../
 COPY go.sum ../
 RUN go mod download
