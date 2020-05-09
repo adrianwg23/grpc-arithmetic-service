@@ -2,7 +2,7 @@ build-client:
 	docker-compose build grpc-client
 
 build-server:
-	docker-compose grpc-server
+	docker-compose build grpc-server
 
 docker-up:
 	docker-compose up -d
