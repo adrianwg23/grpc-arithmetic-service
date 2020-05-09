@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-server-deployment
+  labels:
+    app: grpc-server
+spec:
+  selector:
+    matchLabels:
+      app: grpc-server
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: grpc-server
+    spec:
+      containers:
+        - name: grpc-server
+          image: grpc-server:latest
+          imagePullPolicy: Never
+          ports:
+            - name: grpc
+              containerPort: 3000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-server-service
+spec:
+  selector:
+    app: grpc-server
+  type: ClusterIP
+  ports:
+    - port: 3000 # ClusterIP port
+      targetPort: 3000 # Container port on the pod
