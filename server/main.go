@@ -12,7 +12,7 @@ import (
 type server struct{}
 
 func main() {
-	listener, err := net.Listen("tcp", ":4040")
+	listener, err := net.Listen("tcp", ":3000")
 	if err != nil {
 		log.Fatalf("Failed to listen: %v", err)
 	}

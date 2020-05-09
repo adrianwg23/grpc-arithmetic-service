@@ -11,5 +11,5 @@ COPY proto ../proto
 
 RUN go build
 
-EXPOSE 4040
+EXPOSE 3000
 CMD ["./server"]

@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile.server
     ports:
-      - "4040:4040"
+      - "3000:3000"
     container_name: grpc-server
   grpc-client:
     image: grpc-client:latest
