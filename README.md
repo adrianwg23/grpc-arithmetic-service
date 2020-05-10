@@ -47,8 +47,8 @@ We can do this by running:
 linkerd install | kubectl apply -f -
 ```
 
-Our cluster is now setup! We now need to build are grpc-client and grpc-server images and get them running.
-We build our client and server images by running:
+Our cluster is now setup! We now need to build our grpc-client and grpc-server images and get them running.
+We can build our client and server images by running:
 ```
 make build-client
 make build-server
@@ -66,11 +66,12 @@ Our services are now running! But how do we access it from the outside world? To
 In order to access our cluster from the outside, there is some configuration that will need to be made to `grpc-arithmetic-ingress.yml`. 
 The first thing you will need to do is decide whether you want TLS enabled or not. If not, go ahead and remove the `tls` tag altogether.
 If you want TLS enabled, you will need to generate a signed certificate and key and create a `grpc-arithmetic-tls` Kubernetes secret. 
-You can see view the template of the TLS Secret object [here](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls).
+You can view the template of the TLS Secret object [here](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls). Ensure 
+to set the namespace of the secret to `grpc-arithmetic-service`.
 
 Next, you will need to configure the host name you want exposed outside of the cluster. I've chosen `arithmeticgrpc.com`. You are free
 to change this to any hostname you want/own. If you want to choose a hostname that you do not own, simply fetch the IP of your minikube cluster
-by running `minikube ip` and modifying your `hosts` file. You can modify your hosts file by running
+by running `minikube ip` and modifying your `/etc/hosts` config file. You can modify your hosts configuration by running:
 
 ```
 sudo vim /etc/hosts
@@ -78,12 +79,11 @@ sudo vim /etc/hosts
 
 and adding your `Hostname MINIKUBE_IP` in the config.
 
-With your Ingress rules now setup, we can now run: 
+With your Ingress rules now setup, we can now create our Ingress object! 
 
 ```
 make kube-create-ingress
 ```
-to create our Ingress object!
 
 ## Testing
 To test, we can do a simple curl to our Ingress Controller. Using HTTP, we can curl:
@@ -121,7 +121,7 @@ go run server/main.go
 go run client/main.go
 ```
 
-The grpc-client service is configured to run on port `8080`
+The grpc-client service is configured to run on port `8080`.
 ```
 curl -X GET "http://localhost:8080/add/2/3"
 ```
