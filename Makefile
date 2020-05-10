@@ -26,7 +26,7 @@ kube-run-client:
 	kubectl create -f deploy/client-deployment.yml
 
 kube-run-server:
-	kubectl create -f deploy/server-deployment/yml
+	kubectl create -f deploy/server-deployment.yml
 
 kube-stop-client: kube-delete-deployment-client kube-delete-service-client
 
