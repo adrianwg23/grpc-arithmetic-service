@@ -34,10 +34,13 @@ kube-rollout-server:
 kube-get-namespace:
 	kubectl config view | grep namespace
 
+kube-set-grpc-namespace:
+	kubectl config set-context --current --namespace=grpc-arithmetic-service
+
 # this target lists all the make targets in this Makefile
 list:
 	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null \
 		| awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' \
 		| sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$' | xargs
 
-.PHONY: list build-client build-server docker-up docker-down kube-run-client kube-run-server kube-create-namespace kube-create-ingress kube-delete-namespace kube-rollout-client kube-rollout-server kube-get-namespace
+.PHONY: list build-client build-server docker-up docker-down kube-run-client kube-run-server kube-create-namespace kube-create-ingress kube-delete-namespace kube-rollout-client kube-rollout-server kube-get-namespace kube-set-grpc-namespace
