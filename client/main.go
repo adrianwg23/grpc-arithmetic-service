@@ -10,8 +10,11 @@ import (
 	"strconv"
 )
 
+const grpcServerHostname string = "grpc-server-service.grpc-server.svc.cluster.local"
+const localhost string = "localhost"
+
 func main() {
-	conn, err := grpc.Dial("grpc-server-service:3000", grpc.WithInsecure())
+	conn, err := grpc.Dial(grpcServerHostname + ":3000", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("Dial failed: %v", err)
 	}
@@ -31,6 +34,7 @@ func main() {
 			context.JSON(http.StatusOK, gin.H{
 				"result": fmt.Sprint(res.Result),
 			})
+			log.Print(res.Ip)
 		} else {
 			context.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		}
@@ -48,6 +52,7 @@ func main() {
 			context.JSON(http.StatusOK, gin.H{
 				"result": fmt.Sprint(res.Result),
 			})
+			log.Print(res.Ip)
 		} else {
 			context.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		}
