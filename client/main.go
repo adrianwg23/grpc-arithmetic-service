@@ -10,7 +10,7 @@ import (
 	"strconv"
 )
 
-const grpcServerHostname string = "grpc-server-service.grpc-server.svc.cluster.local"
+const grpcServerHostname string = "grpc-server-service"
 const localhost string = "localhost"
 
 func main() {
