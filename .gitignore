@@ -17,3 +17,5 @@
 go.mod
 go.sum
 bin/
+secrets/
+venv/
