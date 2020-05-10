@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile.server
     ports:
       - "3000:3000"
-    container_name: grpc-server
+    container_name: grpc-server-service.grpc-server.svc.cluster
   grpc-client:
     image: grpc-client:latest
     build:
@@ -15,4 +15,4 @@ services:
       dockerfile: Dockerfile.client
     ports:
       - "8080:8080"
-    container_name: grpc-client
+    container_name: grpc-client-service.grpc-client.svc.cluster
