@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: grpc-arithmetic-ingress
+  namespace: grpc-arithmetic-service
+spec:
+  rules:
+    - host: arithmeticgrpc.com
+      http:
+        paths:
+          - backend:
+              serviceName: grpc-client-service
+              servicePort: 80
