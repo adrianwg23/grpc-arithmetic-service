@@ -9,6 +9,7 @@ message Request {
 
 message Response {
     int64 result = 1;
+    bytes ip = 2;
 }
 
 service ArithmeticService {
