@@ -5,6 +5,10 @@ metadata:
   name: grpc-arithmetic-ingress
   namespace: grpc-arithmetic-service
 spec:
+  tls: # remove if you don't want HTTPS
+    - hosts:
+        - arithmeticgrpc.com
+      secretName: grpc-arithmetic-tls
   rules:
     - host: arithmeticgrpc.com
       http:
