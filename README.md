@@ -1,6 +1,6 @@
 # gRPC Arithmetic Service
-gRPC Arithmetic Service is a simple service I've created to better understand Golang, gRPC, and Kubernetes. This service
-is a simple service that performs simple Addition and Multiplication on 2 integers. This repo contains both the `grpc-client`
+gRPC Arithmetic Service is a simple service I've created to better understand Golang, gRPC, and Kubernetes. gRPC Arithmetic Service
+is a service that performs simple Addition and Multiplication on 2 integers. This repo contains both the `grpc-client`
 and `grpc-server`. The `grpc-client` is a simple HTTP server that consumes two GET endpoints and forwards traffic via grpc 
 to the `grpc-server`. The grpc-server is simply a grpc server configured with two rpc's, `Add` and `Multiply`.
 
